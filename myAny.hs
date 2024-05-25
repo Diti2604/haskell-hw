@@ -1,2 +1,3 @@
-myAny :: [a] -> (a -> Bool) -> Bool
-myAny xs f = foldr (\x acc -> f x || acc) False xs
+myAny :: (a -> Bool) -> [a] -> Bool
+myAny _ []     = False
+myAny b (x:xs) = b x || myAny b xs
